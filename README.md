@@ -13,6 +13,8 @@ A working implementation, including generated code and fully-implemented source
 files, is available on the `master` branch. All you have to do is add your Realm
 App ID in `/src/RealmApp.tsx`:
 
+Leafygreen ui story book link (https://mongodb.github.io/leafygreen-ui/?path=/story/icons--icon)
+
 ```tsx
 const REALM_APP_ID = "task-tracker-tutorial-abcde";
 ```

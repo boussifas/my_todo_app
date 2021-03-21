@@ -9,6 +9,8 @@ query GetAllTasks {
       image
       user_id
     }
+    description
+    story_point
   }
 }
 
@@ -23,6 +25,8 @@ mutation AddTask($task: TaskInsertInput!) {
       image
       user_id
     }
+    description
+    story_point
   }
 }
 
@@ -37,6 +41,8 @@ mutation UpdateTask($taskId: ObjectId!, $updates: TaskUpdateInput!) {
       image
       user_id
     }
+    description
+    story_point
   }
 }
 

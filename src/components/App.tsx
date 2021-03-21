@@ -17,7 +17,8 @@ const App: React.FC = (props) => {
 export default App;
 
 const AppContainer = styled.div`
-  background-color: #282c34;
+  background: rgb(162,100,237);
+  background: linear-gradient(131deg, rgba(162,100,237,1) 0%, rgba(44,44,111,1) 47%, rgba(123,164,228,1) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

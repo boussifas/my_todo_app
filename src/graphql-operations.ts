@@ -17,6 +17,8 @@ export const GetAllTasksDocument = gql`
       image
       user_id
     }
+    description
+    story_point
   }
 }
     `;
@@ -99,6 +101,8 @@ export const UpdateTaskDocument = gql`
       image
       user_id
     }
+    description
+    story_point
   }
 }
     `;
@@ -140,6 +144,8 @@ export const DeleteTaskDocument = gql`
       image
       user_id
     }
+    description
+    story_point
   }
 }
     `;

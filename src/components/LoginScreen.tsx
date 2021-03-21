@@ -2,7 +2,7 @@ import * as React from "react";
 import { useRealmApp } from "../realm/RealmApp";
 
 import styled from "@emotion/styled";
-import Button from "@leafygreen-ui/button";
+//import Button from "@leafygreen-ui/button";
 import TextInput from "@leafygreen-ui/text-input";
 import Card from "@leafygreen-ui/card";
 import { uiColors } from "@leafygreen-ui/palette";
@@ -89,52 +89,52 @@ const LoginScreen: React.FC = () => {
     <Container>
       <Card>
         <Layout>
-          <LoginFormRow>
-            <LoginHeading>
-              {mode === "login" ? "Log In" : "Register an Account"}
-            </LoginHeading>
-          </LoginFormRow>
-          <LoginFormRow>
-            <TextInput
-              type="email"
-              label="Email"
-              placeholder="your.email@example.com"
-              onChange={(e) => {
-                setError((e) => ({ ...e, email: undefined }));
-                setEmail(e.target.value);
-              }}
-              value={email}
-              state={
-                error.email
-                  ? "error"
-                  : validator.isEmail(email)
-                  ? "valid"
-                  : "none"
-              }
-              errorMessage={error.email}
-            />
-          </LoginFormRow>
-          <LoginFormRow>
-            <TextInput
-              type="password"
-              label="Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-              state={
-                error.password ? "error" : error.password ? "valid" : "none"
-              }
-              errorMessage={error.password}
-            />
-          </LoginFormRow>
+          <LoginHeading>
+            {mode === "login" ? "Log In" : "Register an Account"}
+          </LoginHeading>
+          <LoginForm>
+            <LoginFormRow>
+              <TextInput
+                type="email"
+                label="Email"
+                placeholder="your.email@example.com"
+                onChange={(e) => {
+                  setError((e) => ({ ...e, email: undefined }));
+                  setEmail(e.target.value);
+                }}
+                value={email}
+                state={
+                  error.email
+                    ? "error"
+                    : validator.isEmail(email)
+                    ? "valid"
+                    : "none"
+                }
+                errorMessage={error.email}
+              />
+            </LoginFormRow>
+            <LoginFormRow>
+              <TextInput
+                type="password"
+                label="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                value={password}
+                state={
+                  error.password ? "error" : error.password ? "valid" : "none"
+                }
+                errorMessage={error.password}
+              />
+            </LoginFormRow>
+          </LoginForm>
           {mode === "login" ? (
-            <Button variant="primary" onClick={() => handleLogin()}>
+            <Button onClick={() => handleLogin()}>
               Log In
             </Button>
           ) : (
             <Button
-              variant="primary"
+              className="submit-btn"
               onClick={() => handleRegistrationAndLogin()}
             >
               Register
@@ -183,6 +183,7 @@ const ToggleText = styled.span`
   line-height: 18px;
 `;
 
+
 const ToggleLink = styled.button`
   background: none;
   border: none;
@@ -201,6 +202,7 @@ const Layout = styled.div`
   padding: 8px;
   color: black;
   width: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -209,8 +211,28 @@ const Layout = styled.div`
 const LoginHeading = styled.h1`
   margin: 0;
   font-size: 32px;
+  align-self: center;
+  color: rgb(13 9 144);
 `;
 
 const LoginFormRow = styled.div`
   margin-bottom: 16px;
+`;
+const LoginForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 5px;
+`;
+
+const Button = styled.button`
+  align-self: center;
+  margin-top: 5px;
+  width: 50%;
+  height: 37px;
+  color: white;
+  font-size: 12px;
+  border-radius: 15px;
+  border: none;
+  background: rgb(13 9 144);
 `;

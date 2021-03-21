@@ -144,8 +144,8 @@ export default function TaskList(props: TaskListProps): React.ReactElement {
                     status,
                     name: "",
                     assignee: user?.id ?? "",
-                    description: "Static Descirption",
-                    story_point: 5,
+                    description: "",
+                    story_point: 1,
                   })
                 }
               >

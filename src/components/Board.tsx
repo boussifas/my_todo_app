@@ -27,4 +27,7 @@ const TaskBoard = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  outline: groove;
+  background-color: #e3d7e9;
 `;
+

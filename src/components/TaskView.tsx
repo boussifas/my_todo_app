@@ -12,7 +12,7 @@ interface TaskViewProps {
 }
 
 export function TaskView({ task }: TaskViewProps) {
-  const { assignee, name } = task;
+  const { assignee, name, description } = task;
   const status = task.status as TaskStatus;
   const statusColor = statusColors.get(status);
   const statusMessage = statusMessages.get(status);
@@ -32,6 +32,11 @@ export function TaskView({ task }: TaskViewProps) {
           <span>{name}</span>
         </Name>
       </Row>
+      <Row>
+        <Name>
+          <span>{description}</span>
+        </Name>
+      </Row>
     </>
   );
 }
@@ -45,7 +50,7 @@ export function DraftTaskView({
   draft,
   draftActions,
 }: DraftTaskViewProps): React.ReactElement {
-  const { status, name } = draft;
+  const { status, name, description } = draft;
   const { updateDraft, deleteDraft, saveDraft } = draftActions;
   const statusColor = statusColors.get(status);
   const statusMessage = statusMessages.get(status);
@@ -62,7 +67,7 @@ export function DraftTaskView({
       </Row>
       <Row>
         <DraftInput
-          placeholder="Enter a task..."
+          placeholder="Enter a task name..."
           onChange={(e) => {
             updateDraft({
               ...draft,
@@ -70,6 +75,18 @@ export function DraftTaskView({
             });
           }}
           value={name}
+        />
+      </Row>
+      <Row>
+        <DraftInput
+          placeholder="Enter a task description..."
+          onChange={(e) => {
+            updateDraft({
+              ...draft,
+              description: e.target.value,
+            });
+          }}
+          value={description}
         />
       </Row>
       <Row>

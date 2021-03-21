@@ -44,9 +44,9 @@ export default function useDraftTask(
           ...draft,
           _id: new BSON.ObjectId(),
           assignee: draftAssignee ?? undefined,
-          description: "Task Description",
+          description: draft.description,
           _partition: "My Project",
-          story_point: 1,
+          story_point: 0,
         });
         setDraft(null);
       }
